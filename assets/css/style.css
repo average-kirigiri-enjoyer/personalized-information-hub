@@ -858,19 +858,18 @@ body, h1, h2, h3, p, ul, li {
   
 }
 
-#channelIdInput {
-font-style: Raleway;
-font-size:150%;
+#channelIdInput
+{
+  font-size:150%;
   flex-grow: 1;
   padding: 10px;
   margin-right: 1%;
   color: #fff;
   background-color:var(--darker-dsr-blue);
-
 }
 
-#fetchButton {
-  font-style: Raleway;
+#fetchButton
+{
   font-size:150%;
   padding: 10px 30px;
   background-color:var(--darker-dsr-blue);
