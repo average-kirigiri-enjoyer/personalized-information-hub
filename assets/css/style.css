@@ -2,10 +2,8 @@
 ethan (average-kirigiri-enjoyer), WesleyHAS, Stavros Panagiotopoulos (stavrospana)
 SCS Boot Camp Project 1 Group 1 - Personal Information Hub
 Created 2023/08/15
-Last Edited 2023/08/27
+Last Edited 2023/09/01
 */
-
-/* COMMON CSS */
 
 /* defines primary colour scheme */
 :root
@@ -90,8 +88,6 @@ input:focus
   }
 }
 
-/* WESLEY CSS */
-
 /* defines general display format & spacing for live date & time blocks */
 .live-update-container {
   display: flex;
@@ -105,9 +101,19 @@ input:focus
 .date-container, .time-container {
   background-color: var(--darker-dsr-blue);
   border-radius: 10px;
-  margin-left: 20px;
-  margin-right: 20px;
+  margin-left: 2%;
+  margin-right: 2%;
   padding: 20px 40px;
+}
+
+/* decreases live date & time tracker size and gap at large-moderat screen sizes */
+@media screen and (max-width: 1080px)
+{
+  .live-update-container
+  {
+    font-size: 275%;
+    margin-bottom: 25px;
+  }
 }
 
 /* decreases live date & time tracker size at moderate screen sizes */
@@ -121,16 +127,15 @@ input:focus
 }
 
 /* decreases live date & time tracker size at small screen sizes */
-@media screen and (max-width: 780px)
+@media screen and (max-width: 800px)
 {
   .live-update-container
   {
     font-size: 225%;
   }
-  .date-container, .time-container {
-    margin-left: 5px;
-    margin-right: 5px;
-    padding: 15px;
+  .date-container, .time-container
+  {
+    padding: 10px 20px;
   }
 }
 
@@ -139,7 +144,16 @@ input:focus
 {
   .live-update-container
   {
-    font-size: 185%;
+    font-size: 200%;
+  }
+}
+
+/* decreases live date & time tracker size at tiny screen sizes */
+@media screen and (max-width: 550px)
+{
+  .live-update-container
+  {
+    font-size: 155%;
   }
 }
 
@@ -248,7 +262,7 @@ input:focus
 }
 
 /* adds borders which wrap around scroll bar of weekly forecast when it appears */
-@media screen and (max-width: 1560px)
+@media screen and (max-width: 1728px)
 {
   .weekly-weather-style {
     border-right: solid 2px var(--light-dsr-blue);
@@ -356,8 +370,6 @@ input:focus
 body {
   scrollbar-color: var(--light-dsr-blue) var(--dark-dsr-blue);
 }
-
-/* ETHAN CSS */
 
 /* defined colours & basic display settings of datepicker */
 .ui-datepicker
@@ -592,16 +604,21 @@ body {
   background-color: var(--dark-dsr-blue);
 }
 
+/* gets rid of tiny gap between day names */
+#day-names
+{
+  font-size: 0px;
+}
+
 /* displays names of each day of the week horizontally in-line */
 #day-names div
 {
   width: 14.285%;
-  font-size: 110%;
-  text-align: center;
+  font-size: 18px;
   padding-top: 10px;
   padding-bottom: 10px;
-  display: inline;
-  float: left;
+  text-align: center;
+  display: inline-block;
   border-right: solid 2px var(--light-dsr-blue);
   background-color: var(--darker-dsr-blue);
 }
@@ -684,7 +701,8 @@ body {
   margin-top: 2.5px;
   margin-right: 2%;
   border-radius: 5px;
-  padding-top: 1px;
+  padding-top: 0.5px;
+  padding-left: 0.2px;
   border: none;
   float: right;
   width: 10%;
@@ -775,16 +793,11 @@ div.blank-date
   border-radius: 10px;
 }
 
-/* Stavros CSS */
-
-
 body, h1, h2, h3, p, ul, li {
 
   margin: 0;
   padding: 0;
 }
-
-
 
 .container {
     max-width:100%;
@@ -795,8 +808,6 @@ body, h1, h2, h3, p, ul, li {
     flex-direction:column;
     align-items:center;
     justify-content: flex-end;
-   
-  
 }
 
 

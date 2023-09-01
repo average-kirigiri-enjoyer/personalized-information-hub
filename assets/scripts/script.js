@@ -2,13 +2,8 @@
 ethan (average-kirigiri-enjoyer), WesleyHAS, Stavros Panagiotopoulos (stavrospana)
 SCS Boot Camp Project 1 Group 1 - Personal Information Hub
 Created 2023/08/15
-Last Edited 2023/08/27
+Last Edited 2023/09/01
 */
-
-/* Ethan's code here */
-
-//NEXT TO DO
-//update styles
 
 //gets references to HTML elements necessary for event tracker functionality
 var eventTextInput = $("#event-input");
@@ -241,14 +236,15 @@ function adjustRowHeight()
 {
   if (eventView === "weekly") //adjust height of day blocks in weekly view to match tallest day in that row
   {
-    rowOne.children().css({"height": "", "min-height": "174px"});
+    //sets minimum height of rows one & two, allowing height to then adjust to the tallest day block
+    rowOne.children().css({"height": "", "min-height": "220px"});
     rowTwo.children().css({"height": "", "min-height": "220px"});
     
-    //retrieves pixel height of week one & two rows
+    //retrieves pixel height of week one & two parent rows
     rowOneHeight = rowOne[0].offsetHeight;
     rowTwoHeight = rowTwo[0].offsetHeight;
 
-    //sets height of rows one & two to that of the tallest day in that row
+    //sets height of day blocks in rows one & two to that of the tallest day in that row
     rowOne.children().css("min-height", rowOneHeight);
     rowTwo.children().css("min-height", rowTwoHeight);
   }
@@ -292,13 +288,13 @@ function renderEventPlanner(firstDay)
   //if firstDay has been defined, update default datepicker date to firstDay
   if (firstDay)
   {
-    eventDatePicker.datepicker("setDate", firstDay.format("YYYY/MM/D")); 
+    eventDatePicker.datepicker("setDate", firstDay.format("YYYY/MM/DD")); 
   }
   else //if it has not, set firstDay to first day of month currently being viewed, and set default datepicker date to firstDay
   {
     var lastDayOfFirstRow = rowOne.children()[6].id; //retrieves ID (date) of last day in first row of event planner
     var firstDay = dayjs(lastDayOfFirstRow).startOf("month"); //sets firstDay to first day of month containing lastDayOfFirstRow
-    eventDatePicker.datepicker("setDate", firstDay.format("YYYY/MM/D")); 
+    eventDatePicker.datepicker("setDate", firstDay.format("YYYY/MM/DD"));
   }
 }
 
@@ -425,13 +421,16 @@ function createEvent()
 {
   //retrieves event name & date
   var eventName = eventTextInput.val();
-  var eventDate = eventDatePicker.val();
+  var eventDateInput = eventDatePicker.val();
 
   //if the user did not input both a name and date for the event, eject from function
-  if (!(eventName && eventDate))
+  if (!(eventName && eventDateInput))
   {
     return;
   }
+
+  //converts date input format for data processing
+  let eventDate = dayjs(eventDateInput).format("YYYY/MM/D");
 
   //attempts to retrieve entry for input date from local storage
   var localEventList = localStorage.getItem(eventDate);
@@ -516,7 +515,7 @@ $(function()
 {
   eventDatePicker.datepicker(
   {
-    dateFormat: "yy/mm/d",
+    dateFormat: "yy/mm/dd",
   });
 });
 
@@ -526,7 +525,7 @@ renderEventPlanner();
 //resets date of datepicker to start of current month when page is finished loading
 window.addEventListener("load", function()
 {
-  eventDatePicker.datepicker("setDate", dayjs(rowOne.children()[6].id).startOf("month").format("YYYY/MM/D"));
+  eventDatePicker.datepicker("setDate", dayjs(rowOne.children()[6].id).startOf("month").format("YYYY/MM/DD"));
 });
 
 //updates row height while window is being resized
@@ -534,6 +533,15 @@ window.addEventListener("resize", adjustRowHeight);
 
 //attempts to add an event when the add event button is clicked
 addEventButton.on("click", createEvent);
+
+//attempts to add an event if the enter key is pressed while the event text input is in focus
+eventTextInput.on("keypress", function(keypressed)
+{
+  if (keypressed.key === "Enter")
+  {
+    createEvent();
+  }
+});
 
 //attempts to delete an event when one is clicked
 events.on("click", deleteEvent);
