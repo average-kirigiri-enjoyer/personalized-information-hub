@@ -844,18 +844,18 @@ body, h1, h2, h3, p, ul, li {
   }
 }
 
-.video-box iframe {
+.video-box iframe
+{
   width: 100%;
   image-resolution:inherit;
   height: auto;
 }
 
-.input-container {
-
+.input-container
+{
   display:flex;
   align-items: center;
   margin-top: 10px;
-  
 }
 
 #channelIdInput
