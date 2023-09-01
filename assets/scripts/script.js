@@ -645,7 +645,6 @@ function renderVideos(data) {
   videosDiv.setAttribute("style", "display: flex");
   videosDiv.innerHTML = '';// clears existing content
 
-
   for (var i = 0; i < data.items.length; i++) {
     var video = data.items[i]; //gets a video item from the fetched youtube data
     var videoId = video.id.videoId; //gets the video ID
