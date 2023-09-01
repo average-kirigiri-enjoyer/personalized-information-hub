@@ -638,7 +638,6 @@ function fetchVideos(channelId) {
   request.send(); // sends the Youtube API request
 }
 
-
 //added a function to render videos in the UI
 function renderVideos(data) {
 
