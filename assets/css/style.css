@@ -879,11 +879,10 @@ font-size:150%;
   cursor: pointer;
 }
 
-#fetchButton:hover {
-
+#fetchButton:hover
+{
   background-color: var(--light-dsr-blue);
   transition: 0.25s;
-
 }
 
 /* shrinks channel ID input & fetch videos button at small window sizes*/
