@@ -888,14 +888,15 @@ font-size:150%;
 /* shrinks channel ID input & fetch videos button at small window sizes*/
 @media screen and (max-width: 600px)
 {
-  #channelIdInput {
-    font-size:125%;
+  #channelIdInput
+  {
+    font-size: 125%;
     padding: 8px;
     width: 64%;
   }
   #fetchButton
   {
-    font-size:125%;
+    font-size: 125%;
     padding: 8px;
   }
 }
