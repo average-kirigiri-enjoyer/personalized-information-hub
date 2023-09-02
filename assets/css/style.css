@@ -2,7 +2,7 @@
 ethan (average-kirigiri-enjoyer), WesleyHAS, Stavros Panagiotopoulos (stavrospana)
 SCS Boot Camp Project 1 Group 1 - Personal Information Hub
 Created 2023/08/15
-Last Edited 2023/09/01
+Last Edited 2023/09/02
 */
 
 /* defines primary colour scheme */
@@ -101,9 +101,19 @@ input:focus
 .date-container, .time-container {
   background-color: var(--darker-dsr-blue);
   border-radius: 10px;
-  margin-left: 2%;
-  margin-right: 2%;
   padding: 20px 40px;
+}
+
+/* defines display settings for live date & time blocks */
+.date-container
+{
+  margin-right: 2%;
+}
+
+/* defines display settings for live date & time blocks */
+.time-container
+{
+  margin-left: 2%;
 }
 
 /* decreases live date & time tracker size and gap at large-moderat screen sizes */
@@ -137,6 +147,14 @@ input:focus
   {
     padding: 10px 20px;
   }
+  .date-container
+  {
+    margin-right: 0.7%;
+  }
+  .time-container
+  {
+    margin-left: 0.7%;
+  }
 }
 
 /* decreases live date & time tracker size at very small screen sizes */
@@ -145,6 +163,7 @@ input:focus
   .live-update-container
   {
     font-size: 200%;
+    margin-top: 15px;
   }
 }
 
@@ -652,15 +671,15 @@ body {
 {
   background-color: var(--darker-dsr-blue);
   text-align: center;
-  font-size: 110%;
+  font-size: 18px;
   padding: 2px 0px 5px 0px;
 }
 
 /* defines display settings event entries in each day block */
 .events div
 {
-  width: 92%;
-  margin: 4px 4%;
+  width: 96%;
+  margin: 4px 2%;
   padding: 1px 1px 0px 1px;
   border-radius: 8px;
   background-color: var(--darker-dsr-blue);
@@ -698,8 +717,8 @@ body {
 .events div button
 {
   font-size: 12px;
-  margin-top: 2.5px;
-  margin-right: 2%;
+  margin-top: 1.62%;
+  margin-right: 1.9%;
   border-radius: 5px;
   padding-top: 0.5px;
   padding-left: 0.2px;
@@ -793,53 +812,44 @@ div.blank-date
   border-radius: 10px;
 }
 
-body, h1, h2, h3, p, ul, li {
-
-  margin: 0;
-  padding: 0;
+.container
+{
+  max-width:100%;
+  border-radius: 15px;
+  margin-top: 15px;
+  background-color: var(--desaturated-royal-blue);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content: flex-end;
 }
 
-.container {
-    max-width:100%;
-    border-radius: 15px;
-    margin-top: 15px;
-    background-color: var(--desaturated-royal-blue);
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content: flex-end;
+.video-container
+{
+  display: none;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  background-color: var(--dark-dsr-blue);
+  padding: 1.6% 0px 1% 2%;
+  border-radius: 10px;
+  border: solid 2px var(--light-dsr-blue);
 }
 
-
-
-.video-container {
-
-    display: none;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    background-color: var(--dark-dsr-blue);
-    padding: 1.6% 0px 1% 2%;
-    border-radius: 10px;
-    border: solid 2px var(--light-dsr-blue);
-}
-
-
-
-.video-box {
-
+.video-box
+{
   width: 18%;
-    margin-right: 2%;
-    margin-bottom: 7px;
-    border-radius: 6px;
-    overflow:hidden;
-    background-color: var(--darker-dsr-blue);
+  margin-right: 2%;
+  margin-bottom: 7px;
+  border-radius: 6px;
+  overflow:hidden;
+  background-color: var(--darker-dsr-blue);
 }
 
 /* splits videos onto two rows at small screen sizes */
 @media screen and (max-width: 720px)
 {
-  .video-box {
-
+  .video-box
+  {
     width: 31%;
   }
 }
